@@ -1,0 +1,18 @@
+language: ruby
+rvm:
+- 2.2.5
+branches:
+  only:
+  - gh-pages
+env:
+  global:
+  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+  - ENCRYPTION_LABEL=6a97e7e82599
+addons:
+  ssh_known_hosts: samarashuttle.cr
+script:
+- bash _script/build.sh
+after_success:
+- bash _script/deploy.sh
+before_install:
+- bash _script/install.sh
